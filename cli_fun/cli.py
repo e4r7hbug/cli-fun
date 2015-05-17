@@ -59,7 +59,7 @@ class FunCLI(click.MultiCommand):
             if sys.version_info[0] == 2:
                 name = name.encode('ascii', 'replace')
 
-            mod = __import__('commands.' + name, None, None, ['cli'])
+            mod = __import__('cli_fun.commands.' + name, None, None, ['cli'])
             return mod.cli
         except ImportError as e:
             logging.critical(e)
