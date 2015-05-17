@@ -18,9 +18,15 @@ def uname():
 
 
 @click.command('home')
+@click.option('-h', '--hosts',
+              multiple=True,
+              required=True,
+              help='Hostnames to run on')
+@click.option('-u', '--user', help='User to run as')
+@click.option('-p', '--port', default=22, help='Port to use')
 @task
 @runs_once
-def cli():
-    logging.debug(blue('HOME'))
-    with settings(hosts=['e4r7hbug.com'], user='pi', port=2347):
+def cli(hosts, user, port):
+    logging.debug(blue(locals()))
+    with settings(hosts=hosts, user=user, port=port):
         execute(uname)
