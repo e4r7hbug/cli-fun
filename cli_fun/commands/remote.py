@@ -6,7 +6,8 @@ from fabric.colors import blue, green, red
 
 
 def _colourize_output(output):
-    """
+    """Colourize the Fabric run output.
+
     Form a nice colourized footer to which hosts succedded running commands and
     which hosts failed with error output.
     """
