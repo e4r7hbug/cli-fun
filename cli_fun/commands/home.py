@@ -5,16 +5,37 @@ from fabric.api import env, execute, parallel, run, runs_once, settings, task
 from fabric.colors import blue, green, red
 
 
+def _colourize_output(output):
+    """
+    Form a nice colourized footer to which hosts succedded running commands and
+    which hosts failed with error output.
+    """
+
+    good = {}
+    bad = {}
+    for host, result in output.iteritems():
+        if result.succeeded:
+            good[host] = result
+        else:
+            bad[host] = result
+
+    print green('hosts succedded\n==============='.title())
+    for host in good.keys():
+        print green('%s succeeded' % (host))
+    print green('===============\n')
+
+    print red('hosts failed\n============'.title())
+    for host, result in bad.iteritems():
+        logging.fatal('FAILED! Command: %s Code: %-5s ERROR: %s',
+                      blue(result.command), red(result.return_code),
+                      red(result))
+    print red('============\n')
+
+
 @parallel
 def uname():
     with settings(warn_only=True):
-        returned = run('unam')
-
-        if returned.succeeded:
-            print green('%s succeeded' % (env.host))
-        else:
-            print red('%s failed:\nRAN: %s\nERROR: %s' %
-                      (env.host, returned.real_command, returned))
+        return run('unam')
 
 
 @click.command('home')
@@ -29,4 +50,4 @@ def uname():
 def cli(hosts, user, port):
     logging.debug(blue(locals()))
     with settings(hosts=hosts, user=user, port=port):
-        execute(uname)
+        _colourize_output(execute(uname))
