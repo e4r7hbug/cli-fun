@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-setup(name='FunCLI',
+setup(name='CLIFun',
       version='0.0',
       packages=find_packages(),
       include_package_data=True,
@@ -8,5 +8,5 @@ setup(name='FunCLI',
                         'Fabric', ],
       entry_points="""
         [console_scripts]
-        f=cli:cli
+        f=cli_fun.cli:cli
     """, )
