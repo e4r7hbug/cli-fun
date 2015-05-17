@@ -48,6 +48,7 @@ def uname():
 @task
 @runs_once
 def cli(hosts, user, port):
+    """Try using Fabric to run commands on remote machines."""
     logging.debug(blue(locals()))
     with settings(hosts=hosts, user=user, port=port):
         _colourize_output(execute(uname))
