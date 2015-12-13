@@ -49,9 +49,9 @@ def party():
         logging.debug(i)
 
 
-@cli.command()
+@cli.command('to')
 @click.option('-d', '--destination', prompt=True)
-def to(destination):
+def fun_to(destination):
     """Connecting fun to stuffs!"""
     click.echo('Apparently you are going to ' + destination)
 
