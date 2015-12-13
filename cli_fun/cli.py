@@ -41,8 +41,8 @@ pass_context = click.make_pass_decorator(Context, ensure=True)
 class FunCLI(click.MultiCommand):
     def list_commands(self, ctx):
         rv = []
-        cmd_folder = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                                  'commands'))
+        cmd_folder = os.path.abspath(os.path.join(
+            os.path.dirname(__file__), 'commands'))
 
         for filename in os.listdir(cmd_folder):
 

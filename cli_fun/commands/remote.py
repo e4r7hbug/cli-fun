@@ -40,7 +40,8 @@ def uname():
 
 
 @click.command('home')
-@click.option('-h', '--hosts',
+@click.option('-h',
+              '--hosts',
               multiple=True,
               required=True,
               help='Hostnames to run on')
