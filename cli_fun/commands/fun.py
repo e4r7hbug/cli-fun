@@ -70,11 +70,11 @@ def hop():
 @cli.command()
 def j():
     """Example JSON."""
-    object = {'this': 'that', 'up': 'down', 'sub': {'can': 'do'}}
-    print json.dumps(object, indent=2)
-    pprint(object, indent=2)
-    print pformat(object, indent=2)
-    print pformat(object, indent=2, depth=1)
-    print object.viewitems()
-    print object.values()
-    print object.viewvalues()
+    test_object = {'this': 'that', 'up': 'down', 'sub': {'can': 'do'}}
+    print json.dumps(test_object, indent=2)
+    pprint(test_object, indent=2)
+    print pformat(test_object, indent=2)
+    print pformat(test_object, indent=2, depth=1)
+    print test_object.viewitems()
+    print test_object.values()
+    print test_object.viewvalues()
