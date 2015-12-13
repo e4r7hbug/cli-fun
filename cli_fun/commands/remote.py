@@ -2,7 +2,7 @@
 import logging
 
 import click
-from fabric.api import env, execute, parallel, run, runs_once, settings, task
+from fabric.api import execute, parallel, run, runs_once, settings, task
 from fabric.colors import blue, green, red
 
 
