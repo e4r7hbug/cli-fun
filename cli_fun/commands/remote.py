@@ -1,3 +1,4 @@
+"""Remote Server control with Fabric."""
 import logging
 
 import click
@@ -35,6 +36,7 @@ def _colourize_output(output):
 
 @parallel
 def uname():
+    """Run `uname` command."""
     with settings(warn_only=True):
         return run('unam')
 
