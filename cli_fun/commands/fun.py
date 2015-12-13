@@ -24,8 +24,8 @@ def progress():
             pass
 
 
-@cli.command()
-def open():
+@cli.command('open')
+def fun_open():
     """Trying out click.launch."""
     sites = {
         'Google': 'https://google.com',
@@ -56,8 +56,8 @@ def to(destination):
     click.echo('Apparently you are going to ' + destination)
 
 
-@cli.command()
-def max():
+@cli.command('max')
+def fun_max():
     """Maximum levels achieved."""
     click.echo('You found the highest peak!')
 
