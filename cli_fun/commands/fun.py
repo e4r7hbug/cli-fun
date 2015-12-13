@@ -21,7 +21,6 @@ def progress():
     with click.progressbar(i, width=0, fill_char=red('#')) as items:
         for item in items:
             time.sleep(.01)
-            pass
 
 
 @cli.command('open')
