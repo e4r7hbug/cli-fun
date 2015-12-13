@@ -19,7 +19,7 @@ def progress():
     i = range(0, 200)
     logging.debug('%s -> %s', i[0], i[-1])
     with click.progressbar(i, width=0, fill_char=red('#')) as items:
-        for item in items:
+        for _ in items:
             time.sleep(.01)
 
 
