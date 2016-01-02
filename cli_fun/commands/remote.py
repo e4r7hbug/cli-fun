@@ -21,17 +21,17 @@ def _colourize_output(output):
         else:
             bad[host] = result
 
-    print green('hosts succedded\n==============='.title())
+    print(green('hosts succedded\n==============='.title()))
     for host in good.keys():
-        print green('%s succeeded' % (host))
-    print green('===============\n')
+        print(green('%s succeeded' % (host)))
+    print(green('===============\n'))
 
-    print red('hosts failed\n============'.title())
+    print(red('hosts failed\n============'.title()))
     for host, result in bad.iteritems():
         logging.fatal('FAILED! Command: %s Code: %-5s ERROR: %s',
                       blue(result.command), red(result.return_code),
                       red(result))
-    print red('============\n')
+    print(red('============\n'))
 
 
 @parallel
