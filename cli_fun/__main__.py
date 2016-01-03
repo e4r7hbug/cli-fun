@@ -70,7 +70,7 @@ class FunCLI(click.MultiCommand):
 @click.option('-d', '--debug', is_flag=True, help='Enable DEBUG mode.')
 @click.option('-v', '--verbose', is_flag=True, help='Enabled VERBOSE mode.')
 @pass_context
-def cli(ctx, debug, verbose):
+def main(ctx, debug, verbose):
     """A playful command line interface."""
     ctx.verbose = verbose
 
@@ -80,5 +80,7 @@ def cli(ctx, debug, verbose):
         logging.root.setLevel(logging.INFO)
 
 
-if __name__ == '__main__':
-    cli()
+logging.basicConfig(
+    format='[%(levelname)s] %(module)s - %(funcName)s: %(message)s')
+
+main()
