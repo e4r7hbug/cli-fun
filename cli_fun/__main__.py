@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""FunCLI root execution function."""
 import logging
 import os
 import pprint

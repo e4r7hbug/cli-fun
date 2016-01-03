@@ -1,3 +1,4 @@
+"""FunCLI Package installer."""
 from setuptools import find_packages, setup
 
 setup(name='CLIFun',
