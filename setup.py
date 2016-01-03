@@ -8,5 +8,5 @@ setup(name='CLIFun',
                         'Fabric', ],
       entry_points="""
         [console_scripts]
-        f=cli_fun.cli:cli
+        f=cli_fun.__main__:cli
     """, )
