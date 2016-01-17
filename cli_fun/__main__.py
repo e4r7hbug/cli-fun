@@ -26,4 +26,4 @@ if __name__ == '__main__':
     logging.basicConfig(
         format='[%(levelname)s] %(module)s:%(funcName)s - %(message)s')
 
-    main()
+    main()  # pylint: disable=E1120
