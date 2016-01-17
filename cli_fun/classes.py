@@ -33,19 +33,25 @@ class FunCLI(click.MultiCommand):
 
     def list_commands(self, ctx):
         """Search through the _commands_ directory for modules to use."""
-        rv = []
+        log = logging.getLogger(__name__)
+
+        command_list = []
         cmd_folder = os.path.abspath(os.path.join(
             os.path.dirname(__file__), 'commands'))
 
         for filename in os.listdir(cmd_folder):
+            log.debug('Found file in command directory: %s', filename)
 
-            if filename.endswith('.py') and not \
-               filename.startswith('__'):
-                rv.append(filename[0:-3])
+            if filename.endswith('.py'):
+                if not filename.startswith('__'):
+                    command_name = filename[0:-3]
 
-        rv.sort()
-        logging.debug(rv)
-        return rv
+                    log.debug('Adding command to list: %s', command_name)
+                    command_list.append(command_name)
+
+        command_list.sort()
+        log.debug('Sorted command list: %s', command_list)
+        return command_list
 
     def get_command(self, ctx, name):
         """Dynamically import modules in the _commands_ directory."""
