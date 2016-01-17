@@ -47,6 +47,9 @@ class FunCLI(click.MultiCommand):
         return rv
 
     def get_command(self, ctx, name):
+        """Dynamically import modules in the _commands_ directory."""
+        log = logging.getLogger(__name__)
+
         try:
             if sys.version_info[0] == 2:
                 name = name.encode('ascii', 'replace')
@@ -61,4 +64,9 @@ class FunCLI(click.MultiCommand):
             return mod.cli
         except ImportError as e:
             logging.critical(e)
+            return
+        except SyntaxError:
+            log.warning('Failed to import: %s', name)
+            log.warning('Might be a Python %s incompatible module.',
+                        sys.version_info[0])
             return
