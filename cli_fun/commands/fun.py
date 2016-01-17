@@ -76,6 +76,5 @@ def j():
     pprint(test_object, indent=2)
     print(pformat(test_object, indent=2))
     print(pformat(test_object, indent=2, depth=1))
-    print(test_object.viewitems())
+    print(test_object.items())
     print(test_object.values())
-    print(test_object.viewvalues())
