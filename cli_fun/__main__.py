@@ -4,8 +4,8 @@ import logging
 
 import click
 
-from constants import CONTEXT_SETTINGS, PASS_CONTEXT
-from classes import FunCLI
+from .constants import CONTEXT_SETTINGS, PASS_CONTEXT
+from .classes import FunCLI
 
 
 @click.command(cls=FunCLI, context_settings=CONTEXT_SETTINGS)
