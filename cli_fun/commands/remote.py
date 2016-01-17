@@ -27,7 +27,7 @@ def _colourize_output(output):
     print(green('===============\n'))
 
     print(red('hosts failed\n============'.title()))
-    for host, result in bad.iteritems():
+    for host, result in bad.items():
         logging.fatal('FAILED! Command: %s Code: %-5s ERROR: %s',
                       blue(result.command), red(result.return_code),
                       red(result))
