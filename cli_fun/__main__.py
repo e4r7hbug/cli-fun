@@ -22,7 +22,8 @@ def main(ctx, debug, verbose):
         logging.root.setLevel(logging.INFO)
 
 
-logging.basicConfig(
-    format='[%(levelname)s] %(module)s - %(funcName)s: %(message)s')
+if __name__ == '__main__':
+    logging.basicConfig(
+        format='[%(levelname)s] %(module)s:%(funcName)s - %(message)s')
 
-main()
+    main()
