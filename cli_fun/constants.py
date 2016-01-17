@@ -1,3 +1,4 @@
+"""Constants for CLIFun."""
 import click
 
 from .classes import Context
