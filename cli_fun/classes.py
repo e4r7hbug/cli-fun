@@ -8,13 +8,13 @@ import click
 
 
 class Context(object):
+    """Shared context object for passing information between commands."""
+
     def __init__(self):
         self.verbose = False
 
     def log(self, msg, *args):
-        """
-        Logs a message to stderr.
-        """
+        """Logs a message to stderr."""
 
         if args:
             msg %= args
@@ -22,16 +22,17 @@ class Context(object):
         click.echo(msg, file=sys.stderr)
 
     def vlog(self, msg, *args):
-        """
-        Logs a message to stderr only if verbose is enabled.
-        """
+        """Logs a message to stderr only if verbose is enabled."""
 
         if self.verbose:
             self.log(msg, *args)
 
 
 class FunCLI(click.MultiCommand):
+    """Click class for gathering commands."""
+
     def list_commands(self, ctx):
+        """Search through the _commands_ directory for modules to use."""
         rv = []
         cmd_folder = os.path.abspath(os.path.join(
             os.path.dirname(__file__), 'commands'))
