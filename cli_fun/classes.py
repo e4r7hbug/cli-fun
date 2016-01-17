@@ -52,6 +52,7 @@ class FunCLI(click.MultiCommand):
 
         try:
             if sys.version_info[0] == 2:
+                log.debug('Python 2 detected, encoding "%s" in ascii.', name)
                 name = name.encode('ascii', 'replace')
 
             # Add package name to start of import if running CLI from installed
@@ -59,6 +60,8 @@ class FunCLI(click.MultiCommand):
             module_path = [module
                            for module in [__package__, 'commands', name]
                            if module is not None]
+            log.debug('Module path: %s', module_path)
+
             mod = importlib.import_module('.'.join(module_path))
 
             return mod.cli
