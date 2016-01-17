@@ -62,14 +62,9 @@ class FunCLI(click.MultiCommand):
                 log.debug('Python 2 detected, encoding "%s" in ascii.', name)
                 name = name.encode('ascii', 'replace')
 
-            # Add package name to start of import if running CLI from installed
-            # package
-            module_path = [module
-                           for module in [__package__, 'commands', name]
-                           if module is not None]
-            log.debug('Module path: %s', module_path)
-
-            mod = importlib.import_module('.'.join(module_path))
+            mod = importlib.import_module('.commands.{0}'.format(name),
+                                          __package__)
+            log.debug('Imported module: %s', mod)
 
             return mod.cli
         except ImportError as error:
