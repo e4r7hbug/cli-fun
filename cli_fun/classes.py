@@ -62,8 +62,9 @@ class FunCLI(click.MultiCommand):
             mod = importlib.import_module('.'.join(module_path))
 
             return mod.cli
-        except ImportError as e:
-            logging.critical(e)
+        except ImportError as error:
+            log.warning('Failed to import: %s', name)
+            log.warning('Error information:\n%s', error)
             return
         except SyntaxError:
             log.warning('Failed to import: %s', name)
