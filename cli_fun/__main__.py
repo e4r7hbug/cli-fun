@@ -21,6 +21,9 @@ def main(ctx, debug, verbose):
     elif verbose:
         logging.root.setLevel(logging.INFO)
 
+    logging.info('INFO')
+    logging.debug('DEBUG')
+
 
 if __name__ == '__main__':
     logging.basicConfig(
