@@ -1,4 +1,5 @@
 """Test out some logging concepts."""
+import collections
 import logging
 
 import click
@@ -12,23 +13,24 @@ def cli():
     root_log = logging.root
     root_log.setLevel(logging.DEBUG)
 
-    format_dict = {
-        'name': 's',
-        'levelno': 's',
-        'pathname': 's',
-        'filename': 's',
-        'module': 's',
-        'lineno': 'd',
-        'funcName': 's',
-        'created': 'f',
-        'asctime': 's',
-        'msecs': 'd',
-        'relativeCreated': 'd',
-        'thread': 'd',
-        'threadName': 's',
-        'process': 'd',
-        'message': 's'
-    }
+    format_dict = collections.OrderedDict()
+    format_dict['name'] = 's'
+    format_dict['levelno'] = 's'
+    format_dict['levelname'] = 's'
+    format_dict['pathname'] = 's'
+    format_dict['filename'] = 's'
+    format_dict['module'] = 's'
+    format_dict['lineno'] = 'd'
+    format_dict['funcName'] = 's'
+    format_dict['created'] = 'f'
+    format_dict['asctime'] = 's'
+    format_dict['msecs'] = 'd'
+    format_dict['relativeCreated'] = 'd'
+    format_dict['thread'] = 'd'
+    format_dict['threadName'] = 's'
+    format_dict['process'] = 'd'
+    format_dict['message'] = 's'
+
     format_string = '\t'.join(['%({0}){1}'.format(item, type)
                                for item, type in format_dict.items()])
 
