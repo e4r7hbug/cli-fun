@@ -49,5 +49,7 @@ def function_level():
     # Using the function level logger
     log.info('This thing.')
 
+    print('\n', 80 * '*', '\n')
+
     # Using the module level logger
     LOG.info('That global.')
