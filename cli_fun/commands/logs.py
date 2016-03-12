@@ -31,7 +31,7 @@ def cli():
     format_dict['process'] = 'd'
     format_dict['message'] = 's'
 
-    format_string = '\t'.join(['%({0}){1}'.format(item, type)
+    format_string = '\n'.join(['{0} = %({0}){1}'.format(item, type)
                                for item, type in format_dict.items()])
 
     root_handler = logging.StreamHandler()
