@@ -6,7 +6,8 @@ setup(name='CLIFun',
       packages=find_packages(),
       include_package_data=True,
       install_requires=['Click',
-                        'Fabric', ],
+                        'Fabric',
+                        'laboratory', ],
       entry_points={
           'console_scripts': 'f=cli_fun.__main__:main'
       }, )
